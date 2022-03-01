@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var uniqueToppings = (List<string>)ViewData["uniques"];
+    var uniquePizzas = (List<string>)ViewData["uniquePies"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Pizza Toppings Data</h1>
+    <hr />
+    <table border="1" width="40%" style="margin: 0px auto;">
+        <tr>
+            <th>Rank</th>
+            <th>Most Common Toppings</th>
+            <th>Count</th>
+        </tr>
+        @{
+            int c = 0;
+            foreach (string s in uniqueToppings.Distinct())
+            {
+                <tr>
+                    <td>@{c++;}.</td>
+                    <td>@s</td>
+                    <td>@s.Count()</td>
+                </tr>
+            }
+        }
+    </table>
+    <br />
+    <hr />
+    <br />
+    <table border="1" width="40%" style="margin: 0px auto;">
+        <tr>
+            <th>Rank</th>
+            <th>Most Common Pizzas</th>
+            <th>Count</th>
+        </tr>
+        @{
+            for (int i = 0; i > 20; i++)
+            {
+                <tr>
+                    <td>@i.</td>
+                    <td>@uniquePizzas[i]</td>
+                    <td>test</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
